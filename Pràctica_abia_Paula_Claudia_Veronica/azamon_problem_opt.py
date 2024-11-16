@@ -43,7 +43,7 @@ class AzamonProblem(Problem):
         return False
 
 ## Opcion con cost_tracking ##
-    # def cost_tracking(self,state: StateRepresentation) -> float:
+    # def cost_tracking(self) -> float:
     #     filename = 'costs.csv'
     #     with open(filename, 'w', newline='') as f:
     #         writer = csv.writer(f)
