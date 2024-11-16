@@ -120,6 +120,8 @@ def experiment_1():
             happiness = result.heuristic_happiness()
             total_cost += cost
             total_happiness += happiness
+        ## Implementacion cost_tracking ##
+            # problem_instance.cost_tracking()
 
         # Media de las 10 repeticiones 
         print("\n=== Average Times ===")
