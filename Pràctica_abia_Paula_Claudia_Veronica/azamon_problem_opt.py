@@ -11,13 +11,23 @@ class AzamonProblem(Problem):
         self.alpha = alpha
         self.op1 = op1
         self.op2 = op2
-        self.op3 = op3
+        self.op3 = op3self.costs = []
+        self.iteration = 0
+
+        # self.costs = []
+        # self.iteration = 0
+        
         super().__init__(initial_state)
 
     def actions(self, state: StateRepresentation) -> Generator[AzamonOperator, None, None]:
         return state.generate_actions_automatic(self.mode_simulated_annealing, self.op1, self.op2, self.op3)
     
     def result(self, state: StateRepresentation, action: AzamonOperator) -> StateRepresentation:
+    ## Opcion con cost_tracking ##
+        # new_state = state.apply_action(action)
+        # self.costs.append(abs(self.value(new_state)))
+        # self.iteration += 1
+        # return new_state
         return state.apply_action(action)
 
     def value(self, state: StateRepresentation) -> float:
@@ -31,3 +41,12 @@ class AzamonProblem(Problem):
 
     def goal_test(self, state: StateRepresentation) -> bool:
         return False
+
+## Opcion con cost_tracking ##
+    # def cost_tracking(self,state: StateRepresentation) -> float:
+    #     filename = 'costs.csv'
+    #     with open(filename, 'w', newline='') as f:
+    #         writer = csv.writer(f)
+    #         writer.writerow(['Iteration', 'Cost', 'Happiness'])
+    #         for i in range(len(self.costs)):
+    #             writer.writerow([i, self.costs[i]])
